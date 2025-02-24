@@ -1,0 +1,12 @@
+*/.ipynb_checkpoints/*
+.ipynb_checkpoints/*
+.idea/*
+*.ipynb_checkpoints 
+.idea/
+__pycache__/
+*/*.keras
+*.code-workspace
+*.keras
+logs/*
+*swp 
+*~
