@@ -1,0 +1,6 @@
+rich
+jupytext
+numpy
+matplotlib
+notebook
+jupyterlab
