@@ -2,6 +2,8 @@
 # ### Strings
 # These are sequence of characters that can be created using single or double quotes. Anything inside quotes is considered as string.
 
+from rich import print
+
 print('This is a string')
 print("This is also a string")
 
@@ -9,8 +11,12 @@ print("This is also a string")
 #
 # For this situations, we can use the backlash character `\` before the special character to 'escape' the usual meaning
 
+print("This is a double quote: \" ")
+
 # We can escape the meaning of single quote
 print("Doble quotes (\") are important to build strings")
+
+print("This is the letter \t tab")
 
 # There are other escape sequences that have a special meaning to Python:
 #
@@ -37,7 +43,11 @@ print("This introduces the \ttabulator into the string") # Tab introduced
 
 print("\x61") #Hex
 
-print("\N{rightwards arrow}") # Unicode by name
+print("\N{White Smiling Face}") # Unicode by name
+
+happy = "\N{White Smiling Face}"
+
+print("Because I am...", happy)
 
 # The single and double quote can be used to compose strings that contain quotes inside.
 
@@ -48,19 +58,21 @@ print('And the police said: "Stop there, you fool!"')
 # Strings can be formatted inserting data from other variables using f-strings (f comes from format). This can be used to compose more complex strings.
 #
 
-candidate = "Luis"
-score = 99.2
+candidate = "Gustavo"
+score = 100.2
 print(f"The candidate {candidate} got a score of: {score}")
+
+print(f"Because I am {happy}")
 
 # Like with other similar datatypes, we can know the length of a string using the function `len` and access characters using the square brackets `[]`
 
-my_string = 'This is my string'
+my_string = 'This is my awesome string'
 print(len(my_string))
-print(my_string[0]) # Access the character in index 0
+print(my_string[3]) # Access the character in index 0
 
-# The square brackets can also be used to slide the string. This logic is the same one followed when indexing lists, as it will be shown ahead.
+# The square brackets can also be used to slice the string. This logic is the same one followed when indexing lists, as it will be shown ahead.
 
-print(my_string[8:]) # from index 8 to the end
+print(my_string[6:]) # from index 8 to the end
 
 print(my_string[-9:]) # From the one in position 9 counting from the end, until the end.
 
@@ -75,18 +87,27 @@ print("Roberta" in long_string)
 # This is concatenation
 first_string="The answer is "
 second_string = "fourty two (42)"
-concatenated = first_string + second_string
-print(concatenated)
+third_string = "... Trust me"
+answer = first_string + second_string + third_string + " !!!"
+print(answer)
 
 # This is repetition
 first_string  = "And he simply said... "
-second_string = "JA " * 6
+second_string = "JA " * 6 # JA JA JA JA JA JA 
 repeated = first_string + second_string
 print(repeated)
 
+car = "this"
+type(car)
+
 # As previously mentioned, a string is an object of <class 'str'>, meaning that a `str` is a class that should have its own methods.
 
+example = "hello to my little world"
+example_version_2 = (example.title())
+print(example_version_2)
+
 message = "Hello WORLD!, I feel embarrassed"
+print(message)
 print(message.title()) # Changes the string to title (Capitalize first character of each word)
 print(message.upper()) # Uppercase whole string
 print(message.lower()) # Lowercase whole string
@@ -108,6 +129,7 @@ print(message.strip().removeprefix('https://')) # Whitespaces and prefix removed
 # Specific characters or sub-string can also be replaced with another string:
 
 message = "BMW is a brand of vehicles"
+print(message)
 print(message.replace("BMW", "VW")) # Replace method takes the string to replace as first argument, and the string that will replace as second argument.
 
 # Since a string is a sequence, this can be subdivided using a particular character as separator.
@@ -118,8 +140,10 @@ print(message.split(",")) # The split returns a list with strings that were sepa
 # We can join again the elements of a list of strings into one sequence of characters.
 
 message = "Augusto,Julia,Karl"
+print(message)
 message_separated = message.split(",") # The split returns a list with strings that were separated by ","
-"-".join(message_separated) # Means: join the elements of 'message_separated' using '-' as separator.
+print(message_separated)
+print(f"{happy}".join(message_separated)) # Means: join the elements of 'message_separated' using '-' as separator.
 
 # # Exercise:
 # #### Your software receives a message with data of clients that, for an unknown reason, is not in the needed format.
@@ -153,6 +177,8 @@ message_separated = message.split(",") # The split returns a list with strings t
 
 2 * 3 + 2 # This expression should return 8
 
+
+
 # We can use arithmetic operators even after assigning the numeric data to a variable.
 #
 # <div class="alert alert-block alert-warning"><b>Warning: </b>Data type is determined by python during runtime, meaning a number will be stored as float if it contains a decimal </div>
@@ -180,13 +206,13 @@ print('Addition: ', 2+3)
 print('Subtraction: ',2-3)
 print('Multiplication: ',2*3)
 print('Division: ',2/3)
-print('Modulus: ',2%3)
+print('Modulus: ',10%3)
 print('Exponentiation: ',2**3)
-print('Floor division: ',2//3)
+print('Floor division: ',10//3)
 
 # There are some python built-in methods designed to be used with numbers
 
-print("Round: ", round(3.8))
+print("Round: ", round(3.5))
 print("Abs: ", abs(-3.8))
 print("Power: ", pow(2,3))
 
@@ -206,13 +232,13 @@ print("Power: ", pow(2,3))
 # - In Python, lists are created using the square bracket `[]` operator, the `list()` built-in function, or a list comprehension
 #
 
-# #Using list literals
-# my_list = [1,2,3,4] # Elements are separated by comma and enclosed by square brackets
-# print(my_list)
-# print("Object with class: ", type(my_list))
-# print('List of floats: ', [1.0,3.4,5.6])
-# print('List of strings: ', ['a','b','c'])
-# print('List of lists: ', [['a',1],['b','c'], [2,3]]) # Each list contains elements of any type
+#Using list literals
+my_list = [1,2,3,4] # Elements are separated by comma and enclosed by square brackets
+print(my_list)
+print("Object with class: ", type(my_list))
+print('List of floats: ', [1.0,3.4,5.6])
+print('List of strings: ', ['a','b','c'])
+print('List of lists: ', [['a',1],['b','c'], [2,3]]) # Each list contains elements of any type
 
 #Using list() constructor
 print(list([1,2,3,4])) # it consumes an iterable or sequence
@@ -231,12 +257,13 @@ print([1, 2.0, 'Juan']) # List contains int, float and str
 
 # Print the third element
 my_list = [1,34,56,6,93,12,45,67]
+print(my_list)
 print(my_list[2])
 
 # Slices of the original list can be created using the same operator.
 
 print(my_list[5:]) # print from 6th element until the end
-print(my_list[-3:]) # Take the last three elements
+print(my_list[-2:]) # Take the last three elements
 
 # Once accessed, values of a list can be ingested in any other method.
 

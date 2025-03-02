@@ -21,14 +21,14 @@
 #
 
 # %%
-from rich import print
+from rich import print 
 
 # %%
 # This line is a comment
 # We assign a string to the variable 'message'
 message = "Hello to all!"
 # We assign an int to the variable 'number'
-number = 23
+number = 42.0
 print("The message is: ", message)
 print("The number is: ", number)
 
@@ -43,6 +43,9 @@ print("Type of 'number': ", type(number))
 # Both `message` and `number` variables have their own address in the computer memory.
 # To access to this address, we can use the built-in `id()` function.
 # This function returns the “identity” of an object. This `id` is an unique integer that is constant for this object during the interpreter lifetime.
+
+# %%
+id(message)
 
 # %%
 print('Address of "message": ', hex(id(message)))
@@ -64,14 +67,14 @@ print('Address of "new_message": ', hex(id(new_message)))
 #
 
 # %%
-1_message = "hello" # This does not work
+_1_message = "hello" # This does not work
 
 # %% [markdown]
 # <div class="alert alert-block alert-warning"><b>Warning: </b>Spaces are not allowed as part of names.</div>
 #
 
 # %%
-my variable = 1 # This does not work
+my_variable = 1 # This does not work
 
 # %% [markdown]
 # <div class="alert alert-block alert-warning"><b>Warning: </b>There are some Python keywords that are not forbidden but should be avoided (see here: https://docs.python.org/3/library/functions.html) </div>
@@ -80,6 +83,9 @@ my variable = 1 # This does not work
 # %%
 # print = 12 # This should always be avoided
 # print() # This does not work
+
+# %%
+print("hello world")
 
 # %% [markdown]
 # <div class="alert alert-block alert-info"><b>Hint: </b>Use short but descriptive names </div>
@@ -91,10 +97,15 @@ name="John" # This is better
 length_of_persons_name = 23 # This is not recommmended
 name_length = 23 # This is better
 
+# %%
+print(name_length)
+
 # %% [markdown]
 # <div class="alert alert-block alert-danger"><b>Warning: </b>The most common mistake when learning programming are spelling mistakes when calling variables. Luckily, Python provides means to identify this type of errors</div>
 #
 
 # %%
 my_message = "This is my message"
-print(my_mesage) # This should drop a NameError, 'my_mesage' is obviously not defined because I made a typo.
+print(my_message) # This should drop a NameError, 'my_mesage' is obviously not defined because I made a typo.
+
+# %%
