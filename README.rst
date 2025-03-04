@@ -3,6 +3,12 @@ Programming for Engineers II
 
 This public repository contains the material of the course `Programming for Engineers II` (MSPC14), from the `Master in Sustainble Product Creation` of the University of Luxembourg.
 
+
+News
+----
+
+Join the MULTHEM challenge. More information `here <https://www.linkedin.com/company/multhem/posts/?feedView=all>`_.
+
 Features
 --------
 
