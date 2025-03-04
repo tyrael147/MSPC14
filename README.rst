@@ -32,6 +32,12 @@ Simply clone this repository in your local computer as follows:
     git clone https://github.com/tyrael147/MSPC14.git
 
 
+TODO:
+-----
+
+* Consult for the MULTHEM challenge date
+* Give a cheatsheet to install git, conda and setup the environment 
+
 Contribute
 ----------
 
