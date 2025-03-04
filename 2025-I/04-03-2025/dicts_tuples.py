@@ -1,8 +1,8 @@
+# %% [markdown]
 # ### Dictionaries
 #
 # Dictionaries are data stuctures that allow us to connect pieces of related information. Anything that can be matched up can be stored as a dictionary Dictionaries are important python data structures becuase they can store almost limitless nested data.
-
-# +
+# %%
 # A dictionary is a collection of key-value pairs.
 # Each key is unique, and the value can be any data type (int, string, list, etc.)
 
@@ -15,22 +15,21 @@ person = {
 
 # Print the dictionary
 print(person)
-
-
-# +
+# %%
 # Accessing values in a dictionary by using the key
-
 # Accessing the value associated with the key 'name'
 print(person["name"])  # Output: John
 # -
 
+# %%
 # You can also use the `get()` method to access values
 print(person.get("age"))  # Output: 30
 
+
+# %%
 # If the key does not exist, `get()` returns None instead of raising an error
 print(person.get("country"))  # Output: None
 
-# +
 # %%
 # Adding or updating key-value pairs
 
@@ -38,56 +37,62 @@ print(person.get("country"))  # Output: None
 person["country"] = "USA"
 print(person)  # Now the dictionary includes the 'country' key
 
-# -
 
+# %%
 # Updating an existing value
 person["age"] = 31
 print(person)  # The value for 'age' is updated to 31
 
-
+# %%
 # Using the `del` keyword
 del person["city"]
 print(person)  # 'city' is removed from the dictionary
 
 
+# %%
 # Using `pop()` to remove and return the value
 age = person.pop("age")
 print(person)  # 'age' is removed
 print(f"Removed age: {age}")  # Output: Removed age: 31
 
-# +
+
+# %%
 # Checking if a key exists in a dictionary
 
 # Using the `in` keyword
 print("name" in person)  # True
 print("city" in person)  # False
 
-
-# +
+# %%
 # Looping through a dictionary
 
 # Iterating through keys
 for key in person:
     print(key)  # Prints all keys
 
+# %%
 # Iterating through values
 for value in person.values():
     print(value)  # Prints all values
 
+
+# %%
 # Iterating through key-value pairs
 for key, value in person.items():
     print(f"{key}: {value}")  # Prints key-value pairs
 
 
-# +
-# Dictionary comprehension
+
+# %%
+# We can also apply a Dictionary comprehension
 
 # Creating a new dictionary where keys are numbers and values are their squares
 squares = {x: x ** 2 for x in range(5)}
 print(squares)  # Output: {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
 
 
-# +
+
+# %%
 # Nested dictionaries (dictionaries inside dictionaries)
 
 # A dictionary containing another dictionary as a value
@@ -100,7 +105,8 @@ nested_dict = {
 print(nested_dict["person1"]["name"])  # Output: Alice
 
 
-# +
+
+# %%
 # Dictionary methods
 
 # `keys()` returns all keys as a dict_keys object
@@ -113,26 +119,29 @@ print(person.values())  # Output: dict_values(['John', 'USA'])
 print(person.items())  # Output: dict_items([('name', 'John'), ('country', 'USA')])
 
 
-# +
+
+# %%
 # We can also use the `copy()` with dictiionaries, similar to lists.
 
-# +
-# %%
-# Merging two dictionaries (Python 3.5+)
 
+# %%
 # Using `update()` to merge another dictionary into the current one
 person.update({"gender": "Male", "city": "New York"})
 print(person)  # Output: {'name': 'John', 'country': 'USA', 'age': 35, 'gender': 'Male', 'city': 'New York'}
 
+
+# %%
 # Using the `**` unpacking operator to merge dictionaries
 new_info = {"hobbies": ["Reading", "Traveling"]}
 merged_dict = {**person, **new_info}
 print(merged_dict)  # Output: Merged dictionary with all keys and values
 
-# %%
-# A tuple is an immutable, ordered collection of elements.
-# Tuples are similar to lists, but unlike lists, they cannot be modified once created.
+# %% [markdown]
+# # Tuples
+# A tuple is an immutable, ordered collection of elements. They are similar to lists, but unlike lists, they cannot be modified once created.
+#
 
+# %%
 # Example: Creating a tuple
 my_tuple = (1, 2, 3, 4)
 print(my_tuple)
@@ -263,3 +272,5 @@ print(single_element_tuple)  # Output: (1)
 
 
 
+
+# %%
