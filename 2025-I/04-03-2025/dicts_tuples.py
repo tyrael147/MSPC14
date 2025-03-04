@@ -129,7 +129,108 @@ new_info = {"hobbies": ["Reading", "Traveling"]}
 merged_dict = {**person, **new_info}
 print(merged_dict)  # Output: Merged dictionary with all keys and values
 
-# -
+# %%
+# A tuple is an immutable, ordered collection of elements.
+# Tuples are similar to lists, but unlike lists, they cannot be modified once created.
+
+# Example: Creating a tuple
+my_tuple = (1, 2, 3, 4)
+print(my_tuple)
+# %%
+# Accessing elements in a tuple
+
+# You can access elements of a tuple by index (0-based indexing)
+print(my_tuple[0])  # Output: 1
+print(my_tuple[2])  # Output: 3
+
+# Negative indexing starts from the end
+print(my_tuple[-1])  # Output: 4
+# %%
+# Slicing a tuple
+
+# Slicing returns a new tuple with a subset of the elements
+print(my_tuple[1:3])  # Output: (2, 3)
+
+# Slicing with negative indexing
+print(my_tuple[-3:-1])  # Output: (2, 3)
+# %%
+# Tuples are immutable, meaning their elements cannot be changed after creation
+
+# Trying to modify an element will result in an error
+try:
+    my_tuple[0] = 10  # This will raise a TypeError
+except TypeError as e:
+    print(f"Error: {e}")
+# %%
+# Concatenating and repeating tuples
+
+# Concatenating two tuples
+tuple1 = (1, 2)
+tuple2 = (3, 4)
+combined_tuple = tuple1 + tuple2
+print(combined_tuple)  # Output: (1, 2, 3, 4)
+
+# Repeating a tuple
+repeated_tuple = (5, 6) * 3
+print(repeated_tuple)  # Output: (5, 6, 5, 6, 5, 6)
+# %%
+# Checking the length of a tuple
+
+# Using the len() function to get the number of elements in a tuple
+print(len(my_tuple))  # Output: 4 (The number of elements in my_tuple)
+# %%
+# Checking if an element exists in a tuple
+
+# Using the `in` keyword
+print(3 in my_tuple)  # Output: True
+print(10 in my_tuple)  # Output: False
+# %%
+# Iterating through a tuple
+
+# Using a for loop to iterate over the elements
+for element in my_tuple:
+    print(element)  # Prints each element of the tuple
+# %%
+# Tuple unpacking
+
+# You can unpack the elements of a tuple into variables
+a, b, c, d = my_tuple
+print(a, b, c, d)  # Output: 1 2 3 4
+
+# You can use an underscore `_` to ignore a specific value
+x, _, y, _ = my_tuple
+print(x, y)  # Output: 1 3
+# %%
+# Converting other data types to tuples
+
+# You can convert lists, strings, and other iterable types to tuples
+my_list = [1, 2, 3]
+tuple_from_list = tuple(my_list)
+print(tuple_from_list)  # Output: (1, 2, 3)
+
+# Converting a string to a tuple
+tuple_from_string = tuple("hello")
+print(tuple_from_string)  # Output: ('h', 'e', 'l', 'l', 'o')
+# %%
+# Counting and finding index of elements in a tuple
+
+# `count()` returns how many times a specified element appears in a tuple
+print(my_tuple.count(3))  # Output: 1 (3 appears once)
+
+# `index()` returns the index of the first occurrence of a specified element
+print(my_tuple.index(3))  # Output: 2 (3 is at index 2)
+# %%
+# Creating an empty tuple
+
+# An empty tuple can be created using empty parentheses
+empty_tuple = ()
+print(empty_tuple)  # Output: ()
+
+# You can create a tuple with a single element by adding a trailing comma
+single_element_tuple = (1,)
+print(single_element_tuple)  # Output: (1)
+
+
 
 # ## Homework
 
