@@ -7,7 +7,7 @@ This public repository contains the material of the course `Programming for Engi
 News
 ----
 
-Join the MULTHEM challenge. More information `here <https://www.linkedin.com/company/multhem/posts/?feedView=all>`_.
+Join the MULTHEM challenge. More information `here <https://www.linkedin.com/company/multhem/posts/?feedView=all>`_ and `here <https://multhem.eu/multhemtraining.html>`_.
 
 Features
 --------
