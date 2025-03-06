@@ -32,7 +32,7 @@ Instructions
     git clone https://github.com/tyrael147/MSPC14.git
 
 
-* Do not forget to review the `cheatsheet <2025-1/cheatsheet.rst>`_.
+* Do not forget to review the `cheatsheet <2025-I/cheatsheet.rst>`_.
 
 Contribute
 ----------
