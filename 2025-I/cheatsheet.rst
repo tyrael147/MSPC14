@@ -48,6 +48,6 @@ To update it you must do the following:
 #. Once in the `MSPC14` folder, you can run this code :code:`git pull`. 
 #. In you modified the original files, it is possible that a conflict message will appear. A fast way to address this is doing ``git stash save <add-a-name-here>``. This will move your current version away and return to the previous commit without conflicts.
 #. After stashing, run this code again: :code:`git pull`. It should work now.
-#. In case you want to recover your stashes, you can run `git stash list` to see all the stashes, and `git stash apply <the-number-of-stash-you-want>`.
+#. In case you want to recover your stashes, you can run ``git stash list`` to see all the stashes, and ``git stash apply <the-number-of-stash-you-want>``.
 
 
