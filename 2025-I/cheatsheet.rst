@@ -37,3 +37,17 @@ This video explains at detail:
 .. image:: https://img.youtube.com/vi/Pb9aYrESax4/maxresdefault.jpg
     :alt: Usage
     :target: https://www.youtube.com/watch?v=Pb9aYrESax4
+
+Updating the course repository in your local computer
+-----------------------------------------------------
+
+If you have already cloned the repository in your local computer, it may be possible that it is behind the most recent version.
+To update it you must do the following:
+
+#. Navigate to the project folder using the ``cd`` command.
+#. Once in the `MSPC14` folder, you can run this code :code:`git pull`. 
+# In you modified the original files, it is possible that a conflict message will appear. A fast way to address this is doing ``git stash save <add-a-name-here>``. This will move your current version away and return to the previous commit without conflicts.
+#. After stashing, run this code again: :code:`git pull`. It should work now.
+#. In case you want to recover your stashes, you can run `git stash list` to see all the stashes, and `git stash apply <the-number-of-stash-you-want>`.
+
+
