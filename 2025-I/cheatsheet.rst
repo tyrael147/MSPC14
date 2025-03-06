@@ -29,8 +29,8 @@ Cloning the course repo and installing a conda environment
 #. Create a conda environment called `mspc14-class` using this code: :code:`conda create -n mspc14-class python=12`.
 #. Activate the new environment using this code: :code:`conda activate mspc14-class`
 #. Use `pip` to install the required dependencies running this code: :code:`pip install -r 2025-I/25-02-2025/requirements.txt`.
-  In case of error, verify that you are located in MSPC14 and run the code again. 
 #. Run jupyter lab with this code: :code:`jupyter lab`
+  In case of error, verify that you are located in MSPC14 and run the code again. 
 
 This video explains at detail:
 
