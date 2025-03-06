@@ -25,18 +25,14 @@ The folders are organized as follows:
 Instructions
 ------------
 
-Simply clone this repository in your local computer as follows:
+* Simply clone this repository in your local computer as follows:
 
 .. code-block:: console
     
     git clone https://github.com/tyrael147/MSPC14.git
 
 
-TODO:
------
-
-* Consult for the MULTHEM challenge date
-* Give a cheatsheet to install git, conda and setup the environment 
+* Do not forget to review the `cheatsheet <2025-1/cheatsheet.rst>`_.
 
 Contribute
 ----------
