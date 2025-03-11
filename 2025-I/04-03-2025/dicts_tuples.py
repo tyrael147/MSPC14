@@ -1,7 +1,7 @@
 # %% [markdown]
 # ### Dictionaries
 #
-# Dictionaries are data stuctures that allow us to connect pieces of related information. Anything that can be matched up can be stored as a dictionary Dictionaries are important python data structures becuase they can store almost limitless nested data.
+# Dictionaries are data stuctures that allow us to connect pieces of related information. Anything that can be matched up can be stored as a dictionary. Dictionaries are important python data structures because they can store almost limitless nested data.
 # %%
 # A dictionary is a collection of key-value pairs.
 # Each key is unique, and the value can be any data type (int, string, list, etc.)
@@ -10,7 +10,8 @@
 person = {
     "name": "John",
     "age": 30,
-    "city": "New York"
+    "city": "New York",
+    'country':'None'
 }
 
 # Print the dictionary
@@ -28,7 +29,7 @@ print(person.get("age"))  # Output: 30
 
 # %%
 # If the key does not exist, `get()` returns None instead of raising an error
-print(person.get("country"))  # Output: None
+type(person.get("country"))  # Output: None_
 
 # %%
 # Adding or updating key-value pairs
@@ -241,8 +242,9 @@ print(single_element_tuple)  # Output: (1)
 
 
 
+# %% [markdown]
 # ## Homework
-
+#
 # You are given a list of dictionaries, where each dictionary represents a student and contains their name and a list of grades. Write a Python function that:
 #
 # * Iterates through the list of dictionaries.
@@ -268,9 +270,7 @@ print(single_element_tuple)  # Output: (1)
 # ]
 # ```
 #
-
-
-
-
+#
+#
 
 # %%

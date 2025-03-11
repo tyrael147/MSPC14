@@ -3,6 +3,12 @@ Programming for Engineers II
 
 This public repository contains the material of the course `Programming for Engineers II` (MSPC14), from the `Master in Sustainble Product Creation` of the University of Luxembourg.
 
+
+News
+----
+
+Join the MULTHEM challenge. More information `here <https://www.linkedin.com/company/multhem/posts/?feedView=all>`_ and `here <https://multhem.eu/multhemtraining.html>`_.
+
 Features
 --------
 
@@ -19,12 +25,14 @@ The folders are organized as follows:
 Instructions
 ------------
 
-Simply clone this repository in your local computer as follows:
+* Simply clone this repository in your local computer as follows:
 
 .. code-block:: console
     
     git clone https://github.com/tyrael147/MSPC14.git
 
+
+* Do not forget to review the `cheatsheet <2025-I/cheatsheet.rst>`_.
 
 Contribute
 ----------
