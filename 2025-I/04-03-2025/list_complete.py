@@ -1,6 +1,10 @@
 # <div class="alert alert-block alert-info"><b>hint: </b>Multiple variables can be assigned by separating the variables with a comma in left side of the assigment keyword `=`. </div>
 #
 
+a=12,14
+
+
+
 a, b, c = 1, 2, 3
 print(f' a is: {a}')
 print(f' b is: {b}')
@@ -204,10 +208,15 @@ print('`brands_cars_copied`: ',hex(id(brands_cars_copied)))
 brands_cars_copied[1] = ['TOYOTA',"NISSAN"]
 print(brands_cars)
 print(brands_cars_copied)
+print*()
+
+
 
 # +
 # If we modify the elements of one of the elements, what would happen?
 # -
+
+
 
 # When we want to make a complete copy of a `list` we will need to make a __deep copy__. This approach creates copies of each element of the object recursively. 
 
@@ -227,7 +236,7 @@ print('`brands_cars_deep_copied`: ',hex(id(brands_cars_deep_copied)))
 # Verifying the id of the first object contained in the lists
 
 print('`brands_cars[0]` id: ',hex(id(brands_cars[0])))
-print('`brands_cars_deep_copied[0]` id: ',hex(id(brands_cars_deep_copied[0])))
+print('`brands_cars_deep_copied[0]` id: ',hex(id(brands_cars_deep_copied[0]))) 
 
 
 # +
@@ -246,7 +255,7 @@ print('Original list: ', brands_cars) # This was never affected
 #
 
 my_string = "PEUGEOT"
-my_string[1] = "e"
+my_string[1] = "E"
 
 my_string = "PEUGEOT"
 print(my_string)
@@ -281,7 +290,7 @@ for brand in brands_EU:
 
 
 # We can iterate through any sequence
-for letter in brands_EU[0]:
+for letter in brands_EU[2]:
     print(letter)
 
 # We can build nested iterations if necessary. We need to repeat the \` `for` \<variable\> `in` \<sequence\>: \<code block\> \` pattern, being careful of the indentation, which defines the scope of the for-loop.
@@ -491,8 +500,6 @@ for fruit in fruits:
 
 # # When to use list comprehension and when to use for loops?
 
-# +
-# import this
-# -
+import this 
 
 
