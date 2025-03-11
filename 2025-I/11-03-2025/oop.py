@@ -313,6 +313,10 @@ class Animal(ABC):
     def make_sound(self):
         pass
 
+    # This is a concrete method, it is already implemented and it can be overriden.    
+    def eat(self): 
+        print("This animal is eating")
+
 class Dog(Animal):
     def make_sound(self):
         return "Woof"
@@ -323,6 +327,8 @@ print(dog.make_sound())  # Output: Woof
 # %%
 # Try to implement a Dog class without the make_sound() method
 
+# %%
+# Try to implement a Dog class overriding the eat() method
 
 # %% [markdown]
 # # What are the advantages of OOP?

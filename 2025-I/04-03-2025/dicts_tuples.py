@@ -17,23 +17,21 @@ person = {
 # Print the dictionary
 print(person)
 # %%
-# Accessing values in a dictionary by using the key
-# Accessing the value associated with the key 'name'
-print(person["name"])  # Output: John
-# -
+# We can access values in a dictionary by using the key
+# In this case, the key is 'name'
+print(person["name"])  
+
 
 # %%
-# You can also use the `get()` method to access values
-print(person.get("age"))  # Output: 30
+# We can also use the `get()` method to access values
+print(person.get("age")) 
 
 
 # %%
 # If the key does not exist, `get()` returns None instead of raising an error
-type(person.get("country"))  # Output: None_
+type(person.get("country")) 
 
 # %%
-# Adding or updating key-value pairs
-
 # Adding a new key-value pair
 person["country"] = "USA"
 print(person)  # Now the dictionary includes the 'country' key
