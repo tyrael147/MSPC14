@@ -49,5 +49,7 @@ To update it you must do the following:
 #. In you modified the original files, it is possible that a conflict message will appear. A fast way to address this is doing ``git stash save <add-a-name-here>``. This will move your current version away and return to the previous commit without conflicts.
 #. After stashing, run this code again: :code:`git pull`. It should work now.
 #. In case you want to recover your stashes, you can run ``git stash list`` to see all the stashes, and ``git stash apply <the-number-of-stash-you-want>``.
+#. For more information, you can also check the official github cheatsheet [here](https://education.github.com/git-cheat-sheet-education.pdf).
+
 
 
