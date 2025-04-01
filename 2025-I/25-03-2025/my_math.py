@@ -1,6 +1,7 @@
 """My math module"""
 import math
 
+print('Hello world')
 def sum(a,b):
     print("Here comes your sum!")
     return a + b 

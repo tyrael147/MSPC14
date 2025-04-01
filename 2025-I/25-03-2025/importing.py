@@ -1,7 +1,7 @@
 # # Modules and imports
 
 # Python modules and packages help organize code into reusable components. A **module** is a `.py` file containing Python definitions (functions, classes, variables) that can be imported into other scripts.
-# In contrasts, a package is a collection of modules organized in directories that include a special \_\_init\_\_.py file, signaling to Python that the directory should be treated as a package.
+# In contrast, a package is a collection of modules organized in directories that include a special \_\_init\_\_.py file, signaling to Python that the directory should be treated as a package.
 
 # ## Importing Modules/Packages
 # ### **Basic Import Methods**
@@ -12,23 +12,34 @@
 # | **Import specific items** | `from module import func` | Imports only selected functions/variables |
 # | **Import all items** | `from module import *` | Imports everything (not recommended) |
 
-# Importing installed modules
-import math
-print(math.__file__)
+import os
+os.__file__
 
-# Importing local modlues
+# +
+# Importing installed modules
+# import math
+# print(math.__file__)
+# -
+
+# Importing local modules
 import my_math
 print(my_math.sum(1,2))  
+
+my_math.multiplication(2,4)
 
 # Import with alias
 import my_math as mm
 print(mm.multiplication(1,2))  
 
+mm.sum(1,2)
+
 # Import just what is needed
-from my_math import multiplication
+# from <module name> import <name of the object>
+from my_math import multiplication, sum, my_acos
+print(my_acos(0.2))
 print(multiplication(2,3))   
 
-# Start import (DO NOT DO IT PLEASE)
+# Star import (DO NOT DO IT PLEASE)
 from my_math import *
 print(multiplication(3, 41))
 
@@ -41,6 +52,7 @@ print(multiplication(3, 41))
 
 # Let's see all directories that python checks
 import sys
+from rich import print
 print(sys.path)
 
 # All modules have a name in the context of the run time.
@@ -53,7 +65,7 @@ print(sys.__name__)
 # If we want to run only when called directly, let's do this:
 if __name__ == "__main__":
     ...
-    
+
 
 # # About Packages
 
@@ -66,11 +78,20 @@ if __name__ == "__main__":
 # └── module2.py
 # ```
 
-import my_package 
+import my_package
 
-from my_package import module1
-from my_package.module2 import say_good_bye
+# from my_package import module1
+from my_package.module1 import say_hello
 
+
+say_hello("Gus")
+
+my_package.module2.greeting("GUS")
+
+from my_package.module2 import greeting
+greeting("Gus")
+
+module1.say_hello('GUs')
 
 # # Modules in a package can import each other
 # Used to import modules within the same package.

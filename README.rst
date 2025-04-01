@@ -34,6 +34,18 @@ Instructions
 
 * Do not forget to review the `cheatsheet <2025-I/cheatsheet.rst>`_.
 
+
+TODO
+----
+
+- Three project templates will be proposed to replace the daily homework:
+* Chatbot agent
+* Data analytics dashboard
+* Research toolbox (python package)
+
+- The mid-term exam will be either April 8th or 22th. A doodle poll was created.
+
+
 Contribute
 ----------
 

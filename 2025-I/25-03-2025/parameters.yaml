@@ -1,2 +1,7 @@
-name: as
-size: 23
+name: gustavo
+age: 33
+country: Peru
+likes: 
+    - pizza
+    - carbonara
+    - soda

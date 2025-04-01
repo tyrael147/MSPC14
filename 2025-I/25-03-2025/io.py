@@ -23,10 +23,11 @@
 # ### Reading
 
 a  = open('example.txt','r')
+type(a)
 
-# We can read byte by byte
+# We can read one by one
 for i in range(20):
-    print(a.read(1))
+    print(a.read(2))
 
 # Or we can read all at once
 a  = open('example.txt','r')
@@ -35,16 +36,14 @@ print(a.read())
 # Or we can read line by line
 a  = open('example.txt','r')
 for i in a.readlines():
-    print(i)
+    print("line:",i)
+a.close()
 
-# +
 # We always need to close the file to avoid undesidred behavior
 a  = open('example.txt','r')
-for i in range(10): 
+for i in range(300): 
     print(a.read(1))
 
-a.close()
-print(a.read(1))
 
 # +
 # Let's read bytes
@@ -54,7 +53,7 @@ print(a.read(3))
 print(a.read(2))
 print(a.read(1))
 print(a.read(1))
-for i in range(100):
+for _ in range(100):
     print(a.read(1))
 
 
@@ -62,15 +61,24 @@ for i in range(100):
 a.close()
 
 # -
+from rich import print
+import yaml
+a = open('parameters.yaml','r')
+content = a.read()
+a.close()
+data = yaml.safe_load(content)
+print(data)
+
 # reading files in different formats: yaml file
 import yaml
 with open('parameters.yaml', 'r') as f:
     parameters = yaml.safe_load(f.read())
+print(parameters)
 
 
 # reading files in different formats: csv file
 import csv
-with open('data.csv', 'r',newline='') as f:
+with open('data.csv', 'r', newline='') as f:
     reader = csv.reader(f, delimiter=',')
     my_data = list(reader)
 
@@ -79,15 +87,17 @@ my_data
 # ### Writing
 
 my_message="\nThis is a test\nthis is the best test\nthis test is over"
+print(my_message)
 
-a  = open('example_2.txt','w')
+a = open('example_2.txt','w')
 a.write(my_message)
-# a.close() # What happens if we don't close the file?
+a.close() # What happens if we don't close the file?
 
 # Now in append mode
-a = open('example_2.txt','a')
-a.write(my_message)
-a.close()
+for i in range(10):
+    a = open('example_2.txt','a')
+    a.write(my_message)
+    a.close()
 
 
 
@@ -112,13 +122,18 @@ if p.exists():
     print("File exists!")
 # -
 
+abs_path
+
 p = Path('this/is/a/nested')
+
+
 p.mkdir(
     parents=True,
-    # exist_ok=False
+    exist_ok=True
     )
 
-p.parent
+p = Path('example.txt')
+p.parent.parent
 
 p.parent.parent
 
