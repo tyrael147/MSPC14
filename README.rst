@@ -7,7 +7,10 @@ This public repository contains the material of the course `Programming for Engi
 News
 ----
 
-Join the MULTHEM challenge. More information `here <https://www.linkedin.com/company/multhem/posts/?feedView=all>`_ and `here <https://multhem.eu/multhemtraining.html>`_.
+* Join the MULTHEM challenge. More information `here <https://www.linkedin.com/company/multhem/posts/?feedView=all>`_ and `here <https://multhem.eu/multhemtraining.html>`_.
+* **FINAL EXAM**: Wednesday 18/06/2025, 10:30 - 12:30 (MNO 1.030)
+* Do not forget to share your homework repository with: tyrael147. Be sure to give me permission to write, not only read.
+
 
 Features
 --------

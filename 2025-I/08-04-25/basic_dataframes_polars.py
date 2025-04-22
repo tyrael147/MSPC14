@@ -5,7 +5,8 @@
 # %% [markdown]
 # For this we have to be sure that we have polars and pyarrow installed in our environment.
 # ```sh
-# pip install {polars,pyarrow}
+# pip install polars
+# pip install pyarrow
 # ```
 
 # %% [markdown]
@@ -38,7 +39,8 @@ df_csv = pl.read_csv(
 
 # Display basic information
 print("\nCSV DataFrame Info:")
-print(df_csv.describe())
+df_csv
+# df_csv.describe()
 
 # %% [markdown]
 # ## 2. Reading Parquet Files
@@ -109,9 +111,10 @@ lazy_result = (
 )
 
 # lazy_result is a lazy object that contains the graph of operations, is not computed yet
-lazy_result.explain()
+lazy_result
 # Execute the lazy query
-# df_result = lazy_result.collect()
+df_result = lazy_result.collect()
+df_result
 
 # %% [markdown]
 # ## 4. Advanced Reading Examples
@@ -120,11 +123,9 @@ lazy_result.explain()
 # ### Reading with Schema Specification
 
 # %%
-df_feather.schema
+df_feather.head(10)
 
 # %%
-Transaction ID	Date	Customer ID	Gender	Age	Product Category	Quantity	Price per Unit	Total Amount
-i64	str	str	str	i64	str	i64	i64	i64
 
 # %%
 # Define a custom schema
@@ -148,7 +149,7 @@ df_with_schema = pl.read_csv(
 )
 
 # %%
-df_with_schema.head()
+df_with_schema.head(10)
 
 # %% [markdown]
 # ## About Null Values
@@ -157,7 +158,7 @@ df_with_schema.head()
 df_with_schema.null_count()
 
 # %%
-df_with_schema.drop_nulls().shape
+df_with_schema.drop_nulls()
 
 # %% [markdown]
 # ## 5. Data Manipulation with Polars
@@ -171,6 +172,10 @@ df_with_schema.drop_nulls().shape
 
 # %%
 df = df_with_schema
+df.head(4)
+
+# %%
+df = df_with_schema
 
 # Basic column selection
 selected_cols = df.select(["Product Category", "Quantity", "Customer ID"])
@@ -178,12 +183,16 @@ print("Selected columns:")
 print(selected_cols)
 
 # %%
+df.head()
+
+
+# %%
 
 # Select with expressions
 selected_expr = df.select([
     pl.col("Customer ID"),
     pl.col("Transaction ID").alias("id"),
-    (pl.col("Price per Unit")/10).alias("price"),
+    ((pl.col("Total Amount") / pl.col("Price per Unit")) *10).alias("price"),
     pl.col("Age").cast(pl.Float64).alias("age_float")
                 ])
 print("\nSelected with expressions:")
@@ -200,6 +209,9 @@ selected_cond = df.select([
 print("\nSelected with conditional expressions:")
 print(selected_cond)
 # %%
+df.select(pl.col('Product Category').unique())
+
+# %%
 # Select with aggregations
 selected_agg = df.group_by(by='Product Category').agg(
     pl.col("Total Amount").mean().alias("avg_amount"),
@@ -213,10 +225,13 @@ print(selected_agg)
 # The `filter` context allows you to filter rows based on conditions.
 
 # %%
+df.head(2)
+
+# %%
 # Basic filtering
 filtered_basic = df.filter(pl.col("Age") > 30)
 print("Filtered by age > 30:")
-print(filtered_basic)
+filtered_basic
 # %%
 # Filter with multiple conditions
 filtered_multi = df.filter(
@@ -235,7 +250,6 @@ print("\nFiltered by product category Electronics OR Clothing:")
 print(filtered_or)
 
 # %%
-
 # Filter with string operations
 filtered_str = df.filter(
     pl.col("Gender").str.contains("F")
@@ -245,7 +259,7 @@ print(filtered_str)
 # %%
 # Filter with is_in
 filtered_in = df.filter(
-    pl.col("Product Category").is_in(["Electronics", "Clothing", "Books"])
+    pl.col("Product Category").is_in(["Electronics","Books"])
 )
 print("\nFiltered by product category in Electronics, Clothing, or Books:")
 print(filtered_in)
@@ -300,7 +314,7 @@ print(with_cols_window)
 # %%
 # Combining select, filter, and with_columns
 complex_transform = (
-    df
+    df_csv
     .with_columns([
         (pl.col("Total Amount") / pl.col("Quantity")).alias("avg_price_per_item"),
         pl.when(pl.col("Age") > 35).then(pl.lit("Senior")).otherwise(pl.lit("Junior")).alias("age_category")
@@ -317,3 +331,12 @@ complex_transform = (
 print("Complex transformation combining multiple operations:")
 print(complex_transform)
 
+
+# %%
+complex_transform.write_excel('data/new_data.xlsx')
+
+# %%
+# !pip install xlsxwriter
+
+# %%
+complex_transform.write_

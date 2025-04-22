@@ -1,3 +1,5 @@
+# %%
+
 # %% Import required libraries
 import polars as pl
 import matplotlib.pyplot as plt
@@ -10,9 +12,14 @@ df = pl.read_csv('data/dataset.csv').with_columns(
 df = df.drop_nulls()
 df.shape
 
+# %%
+sales_by_date['Total Amount']
+
 # %% Basic Line Plot - Sales over time
-plt.figure(figsize=(12, 6))
+plt.figure(figsize=(12, 6),dpi=300)
+
 sales_by_date = df.group_by('Date').agg(pl.col('Total Amount').sum())
+
 plt.plot(sales_by_date['Date'], sales_by_date['Total Amount'])
 plt.title('Daily Sales Trend')
 plt.xlabel('Date')
@@ -32,13 +39,20 @@ plt.xticks(rotation=45)
 plt.tight_layout()
 plt.show()
 
+# %%
+sales_by_gender = df.group_by('Gender').agg(pl.col('Total Amount').sum())
+sales_by_gender['Gender']
+
 # %% Pie Chart - Sales Distribution by Gender
 plt.figure(figsize=(8, 8))
+
 sales_by_gender = df.group_by('Gender').agg(pl.col('Total Amount').sum())
+
 plt.pie(sales_by_gender['Total Amount'], labels=sales_by_gender['Gender'], autopct='%1.1f%%')
 plt.title('Sales Distribution by Gender')
 plt.tight_layout()
 plt.show()
+# plt.savefig('piechart.png')
 
 # %% Scatter Plot - Age vs Total Amount
 plt.figure(figsize=(10, 6))
@@ -51,7 +65,9 @@ plt.show()
 
 # %% Histogram - Age Distribution
 plt.figure(figsize=(10, 6))
+
 plt.hist(df['Age'], bins=20, edgecolor='black')
+
 plt.title('Age Distribution of Customers')
 plt.xlabel('Age')
 plt.ylabel('Frequency')
@@ -92,3 +108,5 @@ ax2.tick_params(axis='x', rotation=45)
 plt.tight_layout()
 plt.show()
 
+
+# %%

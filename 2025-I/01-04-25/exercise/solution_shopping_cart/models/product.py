@@ -2,8 +2,9 @@
 Product models for the shopping cart system.
 """
 from ..constants import PRODUCT_TYPES
+from abc import ABC
 
-class Product:
+class Product(ABC):
     """Base class for all products."""
     def __init__(self, name, price):
         self.name = name
@@ -62,7 +63,7 @@ class Drink(Product):
         """Returns the container type."""
         return self.container
 
-def create_product(product_type, name):
+def create_product(product_type:str, name:str):
     """Factory function to create products based on type and name."""
     product_data = PRODUCT_TYPES[product_type][name]
     

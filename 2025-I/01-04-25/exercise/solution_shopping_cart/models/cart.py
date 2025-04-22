@@ -6,15 +6,16 @@ from .product import create_product
 
 class ShoppingCart:
     """Shopping cart with user support and error handling."""
+
     @membership_welcome
-    def __init__(self, user=None):
-        self._items = {}  # Format: {product.name: {"product": product, "quantity": quantity}}
+    def __init__(self, user:dict =None):
+        self._items = {}  # Format: {product.name: {"product": product, "quantity": quantity, }}
         self.user = user
 
-    def add_product(self, product_type, product_name, quantity=1):
+    def add_product(self, product_type: str, product_name:str, quantity=1):
         """Adds a product to the cart or increases its quantity."""
         try:
-            product = create_product(product_type, product_name)
+            product = create_product(product_type, product_name) # TODO
 
             if product.name in self._items:
                 self._items[product.name]["quantity"] += quantity
@@ -25,7 +26,7 @@ class ShoppingCart:
         except:
             print("Error adding product")
 
-    def remove_product(self, product_name, quantity=1):
+    def remove_product(self, product_name:str, quantity:float=1):
         """Removes a product from the cart or reduces its quantity."""
         try:
             if product_name in self._items:
@@ -38,7 +39,7 @@ class ShoppingCart:
         except:
             print("Error removing product")
 
-    def calculate_total(self):
+    def calculate_total(self)-> float:
         """Calculates the total cost of all items in the cart."""
         total = 0.0
         for item in self._items.values():

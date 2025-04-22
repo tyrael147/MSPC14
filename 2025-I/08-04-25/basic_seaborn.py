@@ -56,8 +56,9 @@ plt.show()
 # %%
 from datetime import datetime
 plt.figure(figsize=(12, 6))
-sales_by_date = df.group_by('Date').agg(pl.col('Total Amount').sum()).sort('Date').filter(
-        pl.col("Date").is_between(datetime(2023, 3, 1), datetime(2023, 7, 1)),
+# sales_by_date = df.group_by('Date').agg(pl.col('Total Amount').sum()).sort('Date').fVilter(
+sales_by_date = df.sort('Date').filter(
+    pl.col("Date").is_between(datetime(2023, 3, 1), datetime(2023, 7, 1)),
 )
 sns.lineplot(data=sales_by_date,
                 x='Date', 

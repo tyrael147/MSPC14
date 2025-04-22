@@ -21,4 +21,6 @@ PRODUCT_TYPES = {
     }
 }
 
+
+# Dict[str,int]
 FIDELITY_POINTS = {} 

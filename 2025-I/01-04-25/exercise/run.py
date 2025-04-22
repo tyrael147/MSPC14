@@ -2,8 +2,8 @@
 Example usage of the shopping cart system.
 """
 import shopping_cart
-from shopping_cart.models.cart import ShoppingCart
-from shopping_cart import constants
+from solution_shopping_cart.models.cart import ShoppingCart
+from solution_shopping_cart import constants
 
 
 def test_cart():

@@ -3,9 +3,18 @@ Decorators for the shopping cart system.
 """
 from .constants import FIDELITY_POINTS
 
+    # def __init__(self, user:dict =None):
+    #     self._items = {}  # Format: {product.name: {"product": product, "quantity": quantity, }}
+    #     self.user = user
 def membership_welcome(func):
     """
     Decorator that adds fidelity points and prints a welcome message for members.
+    
+    user = {
+        'id': 'user123',
+        'name': 'John Doe',
+        'membership': True
+    }
     """
     def wrapper(*args, **kwargs):
         if kwargs['user'].get('membership', False):
