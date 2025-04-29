@@ -4,7 +4,7 @@ from chatbot import OllamaChatbot # Import the chatbot class
 
 # --- Page Configuration ---
 st.set_page_config(
-    page_title="Ollama Chatbot Dashboard",
+    page_title="My first Ollama Chatbot",
     page_icon="🤖",
     layout="wide"
 )
@@ -31,15 +31,15 @@ with st.sidebar:
             "Choose Ollama Model:",
             options=available_models,
             key="selected_model",
-            index=available_models.index(st.session_state.get("selected_model", available_models[0])) if st.session_state.get("selected_model") in available_models and available_models else 0 # Pre-select if possible
+            index=available_models.index(st.session_state.get("current_model", available_models[0])) if st.session_state.get("current_model") in available_models and available_models else 0 # Pre-select if possible
         )
         # Store the selection in session state immediately
-        st.session_state["selected_model"] = selected_model
+        st.session_state["current_model"] = selected_model
     elif not chatbot:
          st.warning("Chatbot could not be initialized. Check Ollama status.")
     else: # Chatbot initialized but no models found
         st.warning("No Ollama models found. Please pull a model (e.g., `ollama pull llama3`).")
-        st.session_state["selected_model"] = None # Ensure no model is selected
+        st.session_state["current_model"] = None # Ensure no model is selected
 
 
     # Streaming Option
@@ -52,12 +52,19 @@ with st.sidebar:
         st.rerun() # Rerun to reflect the cleared messages
 
 # --- Main Chat Interface ---
-st.title("🤖 Ollama Chatbot Dashboard")
+st.title("🤖 Am-ah-zing Ollama Chatbot Dashboard")
 st.caption(f"Using model: {st.session_state.get('selected_model', 'None Selected')}")
 
 # Initialize chat history in session state if it doesn't exist
 if "messages" not in st.session_state:
     st.session_state.messages = []
+
+    # you can add a system prompt here
+    system_prompt = {
+    'role': 'system',
+    'content': 'You are pirate assistant, and you will impersonate one of the more impressive pirates of the Caribbean Sea.',
+    }
+    st.session_state.messages.append(system_prompt)
 
 # Display existing chat messages
 for message in st.session_state.messages:
@@ -67,7 +74,7 @@ for message in st.session_state.messages:
 # Handle chat input from the user
 if prompt := st.chat_input("What can I help you with?"):
     # Ensure a model is selected before proceeding
-    if not st.session_state.get("selected_model") or not chatbot:
+    if not st.session_state.get("current_model") or not chatbot:
         st.warning("Please select a valid model from the sidebar or ensure Ollama is running.")
     else:
         # Add user message to chat history and display it

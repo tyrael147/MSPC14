@@ -15,7 +15,7 @@ class OllamaChatbot:
         try:
             # Attempt to list models to check connection and availability
             models_info = ollama.list()
-            self.available_models = [model['name'] for model in models_info['models']]
+            self.available_models = [model.model for model in models_info.models]
             if not self.available_models:
                  st.warning("No models found. Make sure you have pulled models using 'ollama pull <model_name>'.")
         except Exception as e:
@@ -69,7 +69,3 @@ class OllamaChatbot:
             st.error(f"Error interacting with Ollama model '{model_name}': {e}")
             return None
 
-# Optional: Instantiate the chatbot once if needed elsewhere,
-# but it's better practice to instantiate it within the Streamlit app
-# to handle potential errors gracefully within the app's context.
-# chatbot_instance = OllamaChatbot()
