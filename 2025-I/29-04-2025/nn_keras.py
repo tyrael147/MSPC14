@@ -121,6 +121,10 @@ plt.show()
 # We split the data into training, validation, and test sets using the same 60%/20%/20% ratio as before. `random_state` ensures reproducibility.
 
 # %%
+import random
+
+
+# %%
 # Separate features (X) and target (y)
 # X = df.select(pl.col(feature_names)).to_numpy()
 # y = df.select(pl.col("MedHouseVal")).to_numpy().ravel()
@@ -193,8 +197,8 @@ def build_model(input_shape):
     model = keras.Sequential(
         [
             layers.Input(shape=(input_shape,)), # Define input shape explicitly
-            layers.Dense(64, activation="relu", name="hidden_layer_1"),
-            layers.Dense(32, activation="relu", name="hidden_layer_2"),
+            layers.Dense(10, activation="relu", name="hidden_layer_1"),
+            layers.Dense(10, activation="relu", name="hidden_layer_2"),
             layers.Dense(1, name="output_layer"), # Linear activation for regression output
         ]
     )
@@ -230,7 +234,7 @@ model.summary()
 print("\n--- Train the Model ---")
 
 # Set training parameters
-EPOCHS = 10 # Maximum number of epochs
+EPOCHS = 30 # Maximum number of epochs
 BATCH_SIZE = 32
 
 # Train the model

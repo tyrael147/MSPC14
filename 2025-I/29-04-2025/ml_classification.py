@@ -16,7 +16,7 @@ import polars as pl
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.datasets import load_raw, load_breast_cancer
+from sklearn.datasets import load_breast_cancer
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
@@ -45,9 +45,6 @@ warnings.filterwarnings('ignore', category=UserWarning)   # Ignore specific user
 #
 
 # %%
-raw.feature_names
-
-# %%
 
 # Load the dataset
 # raw = load_iris()
@@ -72,6 +69,7 @@ target_map = {str(i): name for i, name in enumerate(target_names)}
 df = df.with_columns(
     pl.col("target").cast(pl.Utf8).replace(target_map).alias("species_name")
 )
+
 print("Dataset loaded and converted to Polars DataFrame:")
 print(f"Shape of the DataFrame: {df.shape}")
 print("\nFirst 5 rows of the DataFrame:")
@@ -90,6 +88,20 @@ print("\nTarget classes:", target_names)
 #
 # Importance of EDA: https://towardsdatascience.com/exploratory-data-analysis-eda-python-87178e35b14
 #
+
+# %%
+df.columns
+
+# %%
+names = ['mean perimeter',
+ 'mean area',
+ 'mean smoothness',
+ 'mean compactness',
+ 'mean concavity',
+ 'mean concave points',
+ 'mean symmetry',
+ 'mean fractal dimension',
+        'species_name']
 
 # %%
 print("\n--- Exploratory Data Analysis ---")
@@ -114,7 +126,7 @@ print(df.group_by("species_name").agg(pl.count().alias("count")))
 # Note: Seaborn's pairplot works well with Pandas DataFrames. We'll convert
 # the Polars DataFrame temporarily just for this plot.
 print("\nGenerating Pairplot (requires converting to Pandas temporarily)...")
-df_pandas = df.to_pandas() # Convert Polars to Pandas for seaborn compatibility
+df_pandas = df.select(pl.col(names)).to_pandas() # Convert Polars to Pandas for seaborn compatibility
 pairplot_fig = sns.pairplot(df_pandas, hue='species_name', palette='viridis')
 pairplot_fig.fig.suptitle("Pairplot of raw Features by Species", y=1.02) # Add title slightly above plot
 plt.show()
