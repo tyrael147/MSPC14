@@ -1,0 +1,11 @@
+README.md
+setup.cfg
+setup.py
+src/chuck_facts/__init__.py
+src/chuck_facts/facts.py
+src/chuck_facts.egg-info/PKG-INFO
+src/chuck_facts.egg-info/SOURCES.txt
+src/chuck_facts.egg-info/dependency_links.txt
+src/chuck_facts.egg-info/entry_points.txt
+src/chuck_facts.egg-info/requires.txt
+src/chuck_facts.egg-info/top_level.txt
